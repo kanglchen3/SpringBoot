@@ -52,5 +52,22 @@ Hello springBoot
 除了文件展示方式不同之外，其他的功能作用和properties是一样的，在项目中读取的格式不需要改变
 
 多个yml配置文件在spring boot中是被允许的。这些配置文件的名字必须为 application-***.yml，并且配置文件必须要在 application.yml 中激活后才可以使用
+    
+    spring:
+     profiles:
+      active:
 
 如果properties和yml同时存在spring boot中，这两个配置文件都有效，如果存在同名配置项，则以properties的属性值优先
+
+
+## 四、自动配置原理
+1. 在 META-INF\spring.factories文件中定义了很多自动配置类，可以根据在pom.xml文件中添加的 启动器依赖(spring boot autoconfiguration) 自动配置组件
+2. 通过如下流程可以去修改application配置文件，改变自动配置的组件默认参数
+![image](./images/spring-boot-auto-configuration.jpg)
+
+## 五、lombok
+
+lombok是一个插件工具包，提供了一些注解@Data(生成get/set/hashCode/equals/toString等方法), @Getter, @Setter, @Slf4j(日志，提供Log对象)等这些注解去简化pojo实体类中的构造方法get/set等方法的编写
+ 1. 在IDE中安装lombok插件
+ 2. 添加lombok依赖到pom.xml
+ 3. 改造实体类

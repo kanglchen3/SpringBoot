@@ -3,3 +3,11 @@ jdbc:
   url: jdbc:mysql://localhost:3306/springboot_test
   username: root
   password: root
+
+#激活配置文件，需要制定其他的配置文件名称
+spring:
+  profiles:
+    active: abc, def
+  mvc:
+    view:
+      prefix:
